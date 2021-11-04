@@ -1,0 +1,55 @@
+#
+# simulation parameters
+#
+NDIMS      = 2
+phys_eq    = "RHD"
+cfl        = 0.25
+restart    = 0
+tini       = 0.
+
+#
+# mesh parameters
+#
+#dts        = 0.00019d0
+tstep      = 100
+tend       = 3.d0 # 1 u.c.t. -> 3.336d-6 seconds
+icell      = 64
+jcell      = 2048
+xmin       = -0.25d0
+xmax       =  0.25d0
+ymin       = 0.d0
+ymax       = 16.d0  # 1 u.c.d. -> 1 km
+
+#
+#  Boundary Conditions
+#
+xbegbc  = "periodic"
+xendbc  = "periodic"
+ybegbc  = "reflective"
+yendbc  = "transmissive"
+
+
+#
+# methods applied
+#
+time_scheme     = "rgk3_3"
+reconstr_method = "weno5"
+split_scheme    = "LLF"
+source_term     = "on"
+
+#
+# EoS parameters
+#
+EoStype  = "stiff"
+Ptransition = 9.d0 # MeV fm-3
+Pstar       = 24.d0
+gamma = 1.4d0
+gravity = -1.d-2
+bag = 120.d0
+
+#
+# output parameters
+#
+froot   = "NS"
+fdir    = "./data/"
+fext    = "dat"
